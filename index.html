@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src='https://www.google.com/recaptcha/api.js?render=6LclBYAUAAAAABBag3NcslUeqtZUNDWPhzqERJmM'></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
 </head>
 <body>
-  <script>
-grecaptcha.ready(function() {
-grecaptcha.execute('6LclBYAUAAAAABBag3NcslUeqtZUNDWPhzqERJmM', {action: 'action_name'})
-.then(function(token) {
-// Verify the token on the server.
-});
-});
-</script>
   
+  
+<form id="simpleForm" action="backEndServiceUrl" method="POST">
+  <button class="g-recaptcha" data-sitekey="6LclBYAUAAAAABBag3NcslUeqtZUNDWPhzqERJmM" data-callback="onSubmit">Submit</button>
+</form>  
+  
+<script type="text/javascript">
+  var onSubmit = function(response) {
+    document.getElementById("simpleForm").submit(); // send response to your backend service
+  };
+</script>
   
 <h2>HTML Images</h2>
 <p>HTML images are defined with the img tag:</p>
