@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script type="text/javascript">
+        function get_action() {
+            var v = grecaptcha.getResponse();
+            console.log("Resp" + v);
+            if (v == '') {
+                document.getElementById('captcha').innerHTML = "You can't leave Captcha Code empty";
+                return false;
+            }
+            else {
+                document.getElementById('captcha').innerHTML = "Captcha completed";
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server" onsubmit="return get_action();">
+    <div>
+    <div class="g-recaptcha" data-sitekey="6LddBYAUAAAAANQ8Wt5Ek1BITmJJKMXtp2kk-Jn0
+"></div>
+    </div>
+   <%-- <input type="submit" value="Button" />--%>
+   <asp:Button ID="Button1" runat="server"
+       Text="Button" />
+    <div id="captcha"></div>
+    </form>
+</body>
+</html>
