@@ -47,6 +47,17 @@ grecaptcha.getResponse(widgetId);
   'callback' : onSubmit
   'badge': inline
 });
+  
+  <div class="g-recaptcha" 
+     data-sitekey="yourKey" 
+     data-callback="onSubmit" 
+     data-badge="inline" 
+     data-type="audio" 
+     data-tabindex="3" 
+     data-size="invisible">
+    
+    <script src="https://www.google.com/recaptcha/api.js?onload=onLoad&hl=fr&render=explicit" async defer />
+
 
 <h2>HTML Images</h2>
 <p>HTML images are defined with the img tag:</p>
