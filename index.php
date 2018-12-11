@@ -3,3 +3,10 @@
     echo '<p><strong>' . $key.':</strong> '.$value.'</p>';
   }
 ?>
+
+<?php
+ 
+// grab recaptcha library
+require_once "recaptchalib.php";
+ 
+?>
