@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>Form</title>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script>
-        function captchaSubmit(data) {
-            document.getElementById("contact").submit();
-        }
-    </script>
-    <style>
-        .grecaptcha-badge {display: none;}
-    </style>
-</head>
-<body>
-    <form id="contact" action="results.php" method="post">
-        <label>First <input type="text" name="first"></label><br>
-        <label>Last <input type="text" name="last"></label><br>
-        <button class="g-recaptcha" data-sitekey="6LclBYAUAAAAABBag3NcslUeqtZUNDWPhzqERJmM" data-callback="captchaSubmit" data-badge="inline">Submit</button>
-        <p>Please note this form is protected by reCaptcha.</p>
+  <head>
+    <title>How to Integrate Google “No CAPTCHA reCAPTCHA” on Your Website</title>
+  </head>
+ 
+  <body>
+ 
+    <form action="" method="post">
+ 
+      <label for="name">Name:</label>
+      <input name="name" required><br />
+ 
+      <label for="email">Email:</label>
+      <input name="email" type="email" required><br />
+ 
+      <div class="g-recaptcha" data-sitekey="6LclBYAUAAAAABBag3NcslUeqtZUNDWPhzqERJmM"></div>
+ 
+      <input type="submit" value="Submit" />
+ 
     </form>
-</body>
+ 
+    <!--js-->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+ 
+  </body>
 </html>
