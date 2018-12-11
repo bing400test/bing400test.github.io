@@ -2,72 +2,59 @@
 <html>
 <head>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-</head>
-<body>
-  
-  
-<form id="simpleForm" action="https://www.google.com/recaptcha/api/siteverify" method="POST">
-  <button class="g-recaptcha" data-sitekey="6LclBYAUAAAAABBag3NcslUeqtZUNDWPhzqERJmM" data-callback="onSubmit">Submit</button>
-</form>  
-  
-<script type="text/javascript">
-  var onSubmit = function(response) {
-    document.getElementById("simpleForm").submit(); // send response to your backend service
-  };
-      grecaptcha.execute();
-
+<script>
+  function onSubmit(token) {
+    sendEmailMsg();
+  }
 </script>
-  
-  
-  
-  <form id="simpleForm" action="https://www.google.com/recaptcha/api/siteverify" method="POST">
-  <div class="g-recaptcha"
-       data-sitekey="6LclBYAUAAAAABBag3NcslUeqtZUNDWPhzqERJmM"
-       data-callback="onSubmit"
-       data-size="invisible">
-  </div>
-<script src="https://www.google.com/recaptcha/api.js?onload=onLoad&render=explicit" async defer />
+<script>
+  var blogId = '12345678901';
+  var contactFormMessageSendingMsg = 'Sending...';
+  var contactFormMessageSentMsg = 'Your message has been sent.';
+  var contactFormMessageNotSentMsg = 'Message could not be sent. Please try again later.';
+  var contactFormEmptyMessageMsg = 'Message field cannot be empty.';
+  var contactFormInvalidEmailMsg = 'A valid email is required.'
 
+  var widgetLoaded = false;
+
+  function sendEmailMsg() {
+    if (widgetLoaded == false) {
+      _WidgetManager._RegisterWidget('_ContactFormView', new _WidgetInfo('ContactForm1', 'sidebar', null, document.getElementById('ContactForm1'), {
+        'contactFormMessageSendingMsg': contactFormMessageSendingMsg,
+        'contactFormMessageSentMsg': contactFormMessageSentMsg,
+        'contactFormMessageNotSentMsg': contactFormMessageNotSentMsg,
+        'contactFormInvalidEmailMsg': contactFormInvalidEmailMsg,
+        'contactFormEmptyMessageMsg': contactFormEmptyMessageMsg,
+        'title': 'Contact Form',
+        'blogId': blogId,
+        'contactFormNameMsg': 'Name',
+        'contactFormEmailMsg': 'Email',
+        'contactFormMessageMsg': 'Message',
+        'contactFormSendMsg': 'Send',
+        'submitUrl': 'https://www.blogger.com/contact-form.do'
+      }, 'displayModeFull'));
+      widgetLoaded = true;
+      document.getElementById('ContactForm1_contact-form-submit').click();
+    }
+    return true;
+  }
+</script>
+<form name='contact-form'>
+    <div>Your Name :</div>
+    <input class='contact-form-name' id='ContactForm1_contact-form-name' name='name' size='30' type='text' value='' />
+    <div>Your Email: <em>(required)</em></div>
+    <input class='contact-form-email' id='ContactForm1_contact-form-email' name='email' size='30' type='text' value='' />
+    <div>Your Message: <em>(required)</em></div>
+    <textarea class='contact-form-email-message' id='ContactForm1_contact-form-email-message' name='email-message' rows='5'></textarea>
+    <p></p>
+
+    <input class='g-recaptcha contact-form-button contact-form-button-submit' id='ContactForm1_contact-form-submit' type='button' value='Send' data-sitekey='6LclBYAUAAAAABBag3NcslUeqtZUNDWPhzqERJmM' data-callback='onSubmit()'/>
+
+
+    <div style='text-align: center; max-width: 450px; width: 100%'>
+        <p class='contact-form-error-message' id='ContactForm1_contact-form-error-message'></p>
+        <p class='contact-form-success-message' id='ContactForm1_contact-form-success-message'></p>
+    </div>
 </form>
-  <script type="text/javascript">
-  var onLoad = function() {
-    widgetId = grecaptcha.render('componentId', {
-      'sitekey' : '6LclBYAUAAAAABBag3NcslUeqtZUNDWPhzqERJmM',
-      'callback' : onSubmit, 
-    });
-        grecaptcha.execute(widgetId);
-grecaptcha.reset(widgetId);
-grecaptcha.getResponse(widgetId);
-  };
-  
-
-
-
-  widgetId = grecaptcha.render('componentId', {
-  'sitekey' : '6LclBYAUAAAAABBag3NcslUeqtZUNDWPhzqERJmM',
-  'callback' : onSubmit
-  'badge': inline
-});
-</script>
-  
-
-  
-  <div class="g-recaptcha" 
-     data-sitekey="yourKey" 
-     data-callback="onSubmit" 
-     data-badge="inline" 
-     data-type="audio" 
-     data-tabindex="3" 
-     data-size="invisible">
-    
-    <script src="https://www.google.com/recaptcha/api.js?onload=onLoad&hl=fr&render=explicit" async defer />
-
-
-<h2>HTML Images</h2>
-<p>HTML images are defined with the img tag:</p>
-
-<img src="w3schools.jpg" alt="W3Schools.com" width="104" height="142">
-
 </body>
 </html>
