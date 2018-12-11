@@ -26,9 +26,21 @@
        data-size="invisible">
   </div>
     grecaptcha.execute();
+<script src="https://www.google.com/recaptcha/api.js?onload=onLoad&render=explicit" async defer />
 
 </form>
+  <script type="text/javascript">
+  var onLoad = function() {
+    widgetId = grecaptcha.render('componentId', {
+      'sitekey' : '6LclBYAUAAAAABBag3NcslUeqtZUNDWPhzqERJmM',
+      'callback' : onSubmit, 
+    });
+  };
+</script>
   
+  grecaptcha.execute(widgetId);
+grecaptcha.reset(widgetId);
+grecaptcha.getResponse(widgetId);
   
 <h2>HTML Images</h2>
 <p>HTML images are defined with the img tag:</p>
