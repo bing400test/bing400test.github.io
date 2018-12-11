@@ -35,18 +35,22 @@
       'sitekey' : '6LclBYAUAAAAABBag3NcslUeqtZUNDWPhzqERJmM',
       'callback' : onSubmit, 
     });
-  };
-</script>
-  
-  grecaptcha.execute(widgetId);
+        grecaptcha.execute(widgetId);
 grecaptcha.reset(widgetId);
 grecaptcha.getResponse(widgetId);
+  };
   
+
+
+
   widgetId = grecaptcha.render('componentId', {
   'sitekey' : '6LclBYAUAAAAABBag3NcslUeqtZUNDWPhzqERJmM',
   'callback' : onSubmit
   'badge': inline
 });
+</script>
+  
+
   
   <div class="g-recaptcha" 
      data-sitekey="yourKey" 
