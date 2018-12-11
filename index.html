@@ -42,6 +42,11 @@
 grecaptcha.reset(widgetId);
 grecaptcha.getResponse(widgetId);
   
+  widgetId = grecaptcha.render('componentId', {
+  'sitekey' : '6LclBYAUAAAAABBag3NcslUeqtZUNDWPhzqERJmM',
+  'callback' : onSubmit
+});
+
 <h2>HTML Images</h2>
 <p>HTML images are defined with the img tag:</p>
 
