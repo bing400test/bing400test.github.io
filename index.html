@@ -1,8 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <script src='https://www.google.com/recaptcha/api.js?render=6LclBYAUAAAAABBag3NcslUeqtZUNDWPhzqERJmM'></script>
+
 </head>
 <body>
+  <script>
+grecaptcha.ready(function() {
+grecaptcha.execute('6LclBYAUAAAAABBag3NcslUeqtZUNDWPhzqERJmM', {action: 'action_name'})
+.then(function(token) {
+// Verify the token on the server.
+});
+});
+</script>
+  
+  
 <h2>HTML Images</h2>
 <p>HTML images are defined with the img tag:</p>
 
