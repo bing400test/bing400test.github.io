@@ -15,6 +15,8 @@
   var onSubmit = function(response) {
     document.getElementById("simpleForm").submit(); // send response to your backend service
   };
+      grecaptcha.execute();
+
 </script>
   
   
@@ -25,7 +27,6 @@
        data-callback="onSubmit"
        data-size="invisible">
   </div>
-    grecaptcha.execute();
 <script src="https://www.google.com/recaptcha/api.js?onload=onLoad&render=explicit" async defer />
 
 </form>
